@@ -42,7 +42,7 @@ export default class SecondKillContainer extends React.Component {
         <View style={styles.tabsView}>
           {this.renderTabs.call(this)}
         </View>
-        <GoodsList />
+        <GoodsList activeItemIndex={this.state.activeItemIndex} />
       </View>
     )
   }

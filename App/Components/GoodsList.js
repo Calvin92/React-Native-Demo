@@ -7,12 +7,20 @@ import {
 } from 'react-native'
 import CellForGoodsList from './CellForGoodsList'
 
+import { data } from '../mock'
+
 export default class GoodsList extends React.Component {
   constructor(props) {
     super(props)
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
+    this.ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
     this.state = {
-      dataSource: ds.cloneWithRows([{}, {}, {}, {}, {}, {}, {}])
+      dataSource: this.ds.cloneWithRows(data[0])
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.activeItemIndex !== this.props.activeItemIndex) {
+      this.setState({dataSource: this.ds.cloneWithRows(data[nextProps.activeItemIndex])})
     }
   }
 
@@ -22,7 +30,7 @@ export default class GoodsList extends React.Component {
         <ListView
           dataSource={this.state.dataSource}
           showsVerticalScrollIndicator={false}
-          renderRow={rowData => <CellForGoodsList />}
+          renderRow={rowData => <CellForGoodsList rowData={rowData} />}
         />
       </View>
     )
