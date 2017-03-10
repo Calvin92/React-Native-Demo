@@ -197,6 +197,7 @@ exports.data = [[
   },
   {
     title: '戴尔DELL燃7000灵越Ins15-7560-1505 15.6英寸微边框轻薄笔记本电脑 7560-R1505S 流光银 7代i5 4G内存 128G固态+500G硬盘 官方标配',
+    imageUrl: 'https://img12.360buyimg.com/n7/jfs/t3478/15/533203665/280848/79c299a7/580da152N89db09d3.jpg',
     price: 4499,
     originalPrice: 6999
   },
