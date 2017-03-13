@@ -26,7 +26,6 @@ export default class extends React.Component {
           <Text style={styles.price}><Text style={{fontSize: 10}}>¥</Text> {rowData.price}</Text>
           <View>
             <Text style={styles.originalPrice}>¥ {rowData.originalPrice}</Text>
-            <Text style={{height: 1, top: 8, position: 'absolute',backgroundColor: '#999999'}}>¥ {rowData.originalPrice}</Text>
           </View>
           <Text style={styles.remindMe}>提醒我</Text>
         </View>
@@ -57,7 +56,9 @@ const styles = StyleSheet.create({
     color: '#f23030',
   },
   originalPrice: {
-    fontSize: 12
+    fontSize: 12,
+    color: '#999999',
+    textDecorationLine: 'line-through'
   },
   remindMe: {
     position: 'absolute',
