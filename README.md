@@ -32,8 +32,8 @@
 
 
 # 截图 
-** - Android ** 
+**- Android** 
 ![Android](https://github.com/Calvin92/React-Native-Demo/blob/master/screenshot/Android.png)
 
-** - iOS **
+**- iOS**
 ![iOS](https://github.com/Calvin92/React-Native-Demo/blob/master/screenshot/iOS.png)
