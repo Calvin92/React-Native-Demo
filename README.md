@@ -17,9 +17,17 @@
 
   使用 yarn 安装 JS 的依赖
 
-* 运行 
+* 运行App 
   1. 打开 Genymotion，运行一个虚拟安卓机 
   2. 执行命令 react-native run-android > 如果出现 Timeout getting device list 错误，请参考 [Stackoverflow](http://stackoverflow.com/a/37932527/3828891)
+
+### - iOS  
+* 安装最新的Xcode  
+  打开Mac下的 `Apple Store` 输入关键字 `Xcode` 即可下载安装 
+  
+* 运行App 
+  执行命令 react-native run-ios
+
 
 # 截图
 ![Android & iOS](https://github.com/Calvin92/React-Native-Demo/blob/master/screenshot/Android&iOS.png)
