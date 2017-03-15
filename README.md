@@ -25,8 +25,9 @@
 * 安装最新的Xcode  
   打开Mac下的 `Apple Store` 输入关键字 `Xcode` 即可下载安装 
   
-* 运行App 
-  执行命令 react-native run-ios
+* 运行App    
+
+  执行命令 react-native run-ios
 
 
 # 截图
