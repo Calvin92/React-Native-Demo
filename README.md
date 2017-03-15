@@ -5,7 +5,7 @@
   2. 用 Android Studio 的 SDK Manager 工具下载好所需的 Android SDK > 目前需要 Android SDK version 23.0.1
   3. 配置系统环境变量
     > 在 ~/.bash_profile 配置环境变量（记得修改路径中的用户名
-    > `export ANDROID_HOME=/Users/[xxxxxxx]/Library/Android/sdk`
+    > `export ANDROID_HOME=/Users/[xxxxxxx]/Library/Android/sdk`  
     > `PATH=$PATH:$ANDROID_HOME/tools`
     > `PATH=$PATH:$ANDROID_HOME/platform-tools`
 ```
