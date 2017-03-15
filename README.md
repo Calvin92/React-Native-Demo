@@ -31,5 +31,9 @@
   执行命令 react-native run-ios
 
 
-# 截图
-![Android & iOS](https://github.com/Calvin92/React-Native-Demo/blob/master/screenshot/Android&iOS.png)
+# 截图 
+** - Android ** 
+![Android](https://github.com/Calvin92/React-Native-Demo/blob/master/screenshot/Android.png)
+
+** - iOS **
+![iOS](https://github.com/Calvin92/React-Native-Demo/blob/master/screenshot/iOS.png)
