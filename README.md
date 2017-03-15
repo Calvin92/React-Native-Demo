@@ -13,8 +13,8 @@
   1. 安装 Genymotion > 执行命令 brew cask install genymotion 
   2. 打开 Genymotion，新建一个虚拟安卓机 > 建议配置：4.4.4 - API 19 - 768 * 1280 - 2048MB
 
-* 配置 JS
-  使用 yarn 安装 JS 的依赖
+* 配置 JS 
+  使用 yarn 安装 JS 的依赖
 
 * 运行 
   1. 打开 Genymotion，运行一个虚拟安卓机 
