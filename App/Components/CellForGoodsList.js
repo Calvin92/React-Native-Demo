@@ -4,9 +4,7 @@ import {
   View,
   TouchableOpacity,
   Text,
-  ListView,
   Image,
-  Dimensions
 } from 'react-native'
 
 export default class extends React.Component {
@@ -66,6 +64,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#52b948',
     color: '#ffffff',
     padding: 5,
-    borderRadius: 3
+    borderRadius: 3,
+    overflow: 'hidden',  // iOS下如果不设置这个会导致圆角出不来
   }
 })
