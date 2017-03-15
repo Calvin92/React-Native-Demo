@@ -6,7 +6,7 @@
   3. 配置系统环境变量
     > 在 ~/.bash_profile 配置环境变量（记得修改路径中的用户名
     > export ANDROID_HOME=/Users/[xxxxxxx]/Library/Android/sdk  
-    > PATH=$PATH:$ANDROID_HOME/tools
+    > PATH=$PATH:$ANDROID_HOME/tools  
     > PATH=$PATH:$ANDROID_HOME/platform-tools
 ```
 yarn
