@@ -8,6 +8,11 @@ import {
 } from 'react-native'
 
 export default class extends React.Component {
+
+  httpToHttps(url) { // 兼容ios
+    return url.replace('http', 'https')
+  }
+
   render() {
     const { rowData } = this.props
     return (
@@ -15,15 +20,15 @@ export default class extends React.Component {
         <View>
           {/* iOS因为ATS的原因，默认不能加载http协议的资源 */}
           <Image
-            source={{uri: rowData.imageUrl}}
+            source={{uri: this.httpToHttps(rowData.imageurl)}}
             style={styles.image}
           />
         </View>
         <View style={styles.content}>
-          <Text numberOfLines={2}>{rowData.title}</Text>
-          <Text style={styles.price}><Text style={{fontSize: 10}}>¥</Text> {rowData.price}</Text>
+          <Text numberOfLines={2}>{rowData.wname}</Text>
+          <Text style={styles.price}><Text style={{fontSize: 10}}>¥</Text> {rowData.miaoShaPrice}</Text>
           <View>
-            <Text style={styles.originalPrice}>¥ {rowData.originalPrice}</Text>
+            <Text style={styles.originalPrice}>¥ {rowData.jdPrice}</Text>
           </View>
           <Text style={styles.remindMe}>提醒我</Text>
         </View>

@@ -7,17 +7,44 @@ import {
 } from 'react-native'
 import GoodsList from '../Components/GoodsList'
 
+const gids = [26, 50, 27, 34, 28]
+
 export default class SecondKillContainer extends React.Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      activeItemIndex: 0
+      activeItemIndex: 0,
+      fetching: false,
+      itemList: []
     }
   }
 
+  _fetchItemList(index = 0) {
+    this.setState({itemList: []})
+
+    fetch(`https://ms.m.jd.com/seckill/seckillList.json?gid=${gids[index]}`)
+    .then(resp => resp.json())
+    .then(data => {
+      console.log(data)
+      this.setState({fetching: false, itemList: data.seckillInfo.itemList})
+    })
+    .catch(e => {
+      console.log(e)
+      this.setState(fetching: false)
+    })
+  }
+
+  componentDidMount() {
+    this.setState({fetching: true})
+
+    this._fetchItemList()
+  }
+
   handleSwitchActiveTabItem(index) {
-    this.setState({activeItemIndex: index})
+    this.setState({activeItemIndex: index, fetching: true})
+
+    this._fetchItemList(index)
   }
 
   renderTabs() {
@@ -42,7 +69,10 @@ export default class SecondKillContainer extends React.Component {
         <View style={styles.tabsView}>
           {this.renderTabs.call(this)}
         </View>
-        <GoodsList activeItemIndex={this.state.activeItemIndex} />
+        <GoodsList
+          fetching={this.state.fetching}
+          itemList={this.state.itemList}
+          activeItemIndex={this.state.activeItemIndex} />
       </View>
     )
   }

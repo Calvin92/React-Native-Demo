@@ -3,7 +3,8 @@ import {
   StyleSheet,
   View,
   Text,
-  ListView
+  ListView,
+  ActivityIndicator,
 } from 'react-native'
 import CellForGoodsList from './CellForGoodsList'
 
@@ -14,22 +15,32 @@ export default class GoodsList extends React.Component {
     super(props)
     this.ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
     this.state = {
-      dataSource: this.ds.cloneWithRows(data[0])
+      dataSource: this.ds.cloneWithRows([])
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if(nextProps.activeItemIndex !== this.props.activeItemIndex) {
-      this.setState({dataSource: this.ds.cloneWithRows(data[nextProps.activeItemIndex])})
-    }
+  // componentWillReceiveProps(nextProps) {
+  //   if(nextProps.activeItemIndex !== this.props.activeItemIndex) {
+  //     this.setState({dataSource: this.ds.cloneWithRows(data[nextProps.activeItemIndex])})
+  //   }
+  // }
+
+  renderHeader() {
+    return this.props.fetching
+      ? <ActivityIndicator
+          animating={true}
+          style={{height: 50, justifyContent: 'center', alignItems: 'center'}} />
+      : null
   }
 
   render() {
     return (
       <View style={styles.goodsListView}>
         <ListView
-          dataSource={this.state.dataSource}
+          renderHeader={this.renderHeader.bind(this)}
+          dataSource={this.ds.cloneWithRows(this.props.itemList)}
           showsVerticalScrollIndicator={false}
+          enableEmptySections={true}
           renderRow={rowData => <CellForGoodsList rowData={rowData} />}
         />
       </View>
