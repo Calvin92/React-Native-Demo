@@ -4,10 +4,10 @@ import {
   ListView,
   ActivityIndicator,
 } from 'react-native'
+
 import CellForGoodsList from './GoodsListItem'
 
-
-export default class GoodsList extends React.Component {
+export default class extends React.Component {
   constructor(props) {
     super(props)
     this.ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})

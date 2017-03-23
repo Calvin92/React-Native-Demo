@@ -5,13 +5,10 @@ import {
   View,
   Text,
 } from 'react-native'
-
 import GoodsList from '../Components/GoodsList'
 
-const gids = [29, 42, 30, 44, 26]
-
-export default class SecondKillContainer extends React.Component {
-
+const gids = [42, 30, 44, 26, 50]
+export default class extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -27,34 +24,31 @@ export default class SecondKillContainer extends React.Component {
     fetch(`https://ms.m.jd.com/seckill/seckillList.json?gid=${gids[index]}`)
     .then(resp => resp.json())
     .then(data => {
-      // console.log(data)
       this.setState({fetching: false, itemList: data.seckillInfo.itemList})
     })
     .catch(e => {
-      console.log(e)
       this.setState(fetching: false)
     })
   }
 
   componentDidMount() {
     this.setState({fetching: true})
-
     this._fetchItemList()
   }
 
   handleSwitchActiveTabItem(index) {
     this.setState({activeItemIndex: index, fetching: true})
-
     this._fetchItemList(index)
   }
 
   renderTabs() {
-    const whatTimeIsNow = new Date().getHours() / 2 === 0 ? new Date().getHours() : new Date().getHours() - 1
+    let h = new Date().getHours()
+    h = h / 2 === 0 ? h : h - 1
     return [{}, {}, {}, {}, {}].map((item, i) =>
       <TouchableOpacity key={`tab-${i}`} style={styles.tabItem} onPress={this.handleSwitchActiveTabItem.bind(this, i)}>
         <View  style={styles.tabItem}>
           <Text style={this.state.activeItemIndex === i ? styles.activeTabItem : null}>
-          { (whatTimeIsNow + 2 * i) > 24 ? (whatTimeIsNow + 2 * i) - 24 : (whatTimeIsNow + 2 * i) } : 00
+          { (h + 2 * i) > 24 ? (h + 2 * i) - 24 : (h + 2 * i) } : 00
           </Text>
           <Text style={{color: this.state.activeItemIndex === i ? '#f23030' : '#666666'}}>
             {i === 0 ? '秒杀中' : '即将开场'}

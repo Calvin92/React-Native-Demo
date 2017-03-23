@@ -8,7 +8,6 @@ import {
 } from 'react-native'
 
 export default class extends React.Component {
-
   httpToHttps(url) { // 兼容ios
     return url.replace('http', 'https')
   }
