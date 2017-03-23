@@ -36,7 +36,7 @@ export default class extends React.Component {
     this._fetchItemList()
   }
 
-  handleSwitchActiveTabItem(index) {
+  handleSwitchTabItem(index) {
     this.setState({activeItemIndex: index, fetching: true})
     this._fetchItemList(index)
   }
@@ -45,7 +45,7 @@ export default class extends React.Component {
     let h = new Date().getHours()
     h = h / 2 === 0 ? h : h - 1
     return [{}, {}, {}, {}, {}].map((item, i) =>
-      <TouchableOpacity key={`tab-${i}`} style={styles.tabItem} onPress={this.handleSwitchActiveTabItem.bind(this, i)}>
+      <TouchableOpacity key={`tab-${i}`} style={styles.tabItem} onPress={this.handleSwitchTabItem.bind(this, i)}>
         <View  style={styles.tabItem}>
           <Text style={this.state.activeItemIndex === i ? styles.activeTabItem : null}>
           { (h + 2 * i) > 24 ? (h + 2 * i) - 24 : (h + 2 * i) } : 00
@@ -66,8 +66,7 @@ export default class extends React.Component {
         </View>
         <GoodsList
           fetching={this.state.fetching}
-          itemList={this.state.itemList}
-          activeItemIndex={this.state.activeItemIndex} />
+          itemList={this.state.itemList} />
       </View>
     )
   }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import {
   StyleSheet,
   ListView,
@@ -7,10 +7,10 @@ import {
 
 import CellForGoodsList from './GoodsListItem'
 
-export default class extends React.Component {
+export default class extends Component {
   constructor(props) {
     super(props)
-    this.ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
+    this.ds = new ListView.DataSource({rowHasChanged: (prevRow, nextRow) => prevRow !== nextRow})
   }
 
   renderHeader() {
