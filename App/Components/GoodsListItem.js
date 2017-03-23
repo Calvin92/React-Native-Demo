@@ -18,7 +18,6 @@ export default class extends React.Component {
     return (
       <TouchableOpacity style={styles.container}>
         <View>
-          {/* iOS因为ATS的原因，默认不能加载http协议的资源 */}
           <Image
             source={{uri: this.httpToHttps(rowData.imageurl)}}
             style={styles.image}

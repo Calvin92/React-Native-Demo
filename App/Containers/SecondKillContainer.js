@@ -5,9 +5,10 @@ import {
   View,
   Text,
 } from 'react-native'
+
 import GoodsList from '../Components/GoodsList'
 
-const gids = [26, 50, 27, 34, 28]
+const gids = [29, 42, 30, 44, 26]
 
 export default class SecondKillContainer extends React.Component {
 
@@ -26,7 +27,7 @@ export default class SecondKillContainer extends React.Component {
     fetch(`https://ms.m.jd.com/seckill/seckillList.json?gid=${gids[index]}`)
     .then(resp => resp.json())
     .then(data => {
-      console.log(data)
+      // console.log(data)
       this.setState({fetching: false, itemList: data.seckillInfo.itemList})
     })
     .catch(e => {
